@@ -1,280 +1,322 @@
 <script setup></script>
 
 <template>
-  <section id="cd-timeline" class="cd-container">
-    <div class="cd-timeline-block">
-      <div class="cd-timeline-img cd-picture"></div>
+  <div class="container">
+    <div class="main-timeline">
+      <div class="timeline">
+        <div class="icon"></div>
+        <div class="date-content">
+          <div class="date-outer">
+            <span class="date">
+              <span class="month">1 Año</span>
+              <span class="year">2024</span>
+            </span>
+          </div>
+        </div>
+        <div class="timeline-content">
+          <h5 class="title">UTN San Rafael &amp; Design</h5>
+          <p class="description">
+            Actualmente estudiando Tecnicatura Universitaria en Programación, en
+            la Universidad Tecnológica Nacional de San Rafael. Donde se estudia,
+            entre otras cosas, los lenguajes de Python, Java y JavaScript.
+          </p>
+        </div>
+      </div>
 
-      <div class="cd-timeline-content">
-        <h3>UTN FRSR</h3>
-        <p>Tecnicatura Universitaria en Programación</p>
+      <div class="timeline">
+        <div class="icon"></div>
+        <div class="date-content">
+          <div class="date-outer">
+            <span class="date">
+              <span class="month">9 Meses</span>
+              <span class="year">2024</span>
+            </span>
+          </div>
+        </div>
+        <div class="timeline-content">
+          <h5 class="title">Alura Latam</h5>
+          <p class="description">
+            Introducción a la programación con HTML, CSS y JavaScript, luego
+            enfocado a BackEnd con Java.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="icon"></div>
+        <div class="date-content">
+          <div class="date-outer">
+            <span class="date">
+              <span class="month">8 Meses</span>
+              <span class="year">2022</span>
+            </span>
+          </div>
+        </div>
+        <div class="timeline-content">
+          <h5 class="title">UNNOBA</h5>
+          <p class="description">
+            Introducción a la programación (hasta nivel medio) con Python, en la
+            Universidad Nacional del Noroeste de la Provincia de Buenos Aires.
+          </p>
+        </div>
       </div>
     </div>
-
-    <div class="cd-timeline-block">
-      <div class="cd-timeline-img cd-movie"></div>
-
-      <div class="cd-timeline-content">
-        <h3>Python Essentials Cisco Academy</h3>
-        <p>Curso de introducción a Python</p>
-      </div>
-    </div>
-
-    <div class="cd-timeline-block">
-      <div class="cd-timeline-img cd-picture"></div>
-
-      <div class="cd-timeline-content">
-        <h3>Desarrollo Frontend React</h3>
-        <p>Curso de desarrollo Frontend React</p>
-      </div>
-    </div>
-  </section>
+  </div>
 </template>
 
 <style scoped>
-html,
 body {
-  background-color: #222c32;
-  height: 100%;
-  font-family: "Open Sans", sans-serif;
-  box-sizing: border-box;
+  background-color: #f7f7f7;
+  margin-top: 20px;
 }
 
-.cd-container {
-  width: 90%;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 10%;
-  border-radius: 2px;
-}
-.cd-container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-#cd-timeline {
+.main-timeline {
   position: relative;
-  padding: 2em 0;
-  margin-top: 2em;
-  margin-bottom: 2em;
 }
-#cd-timeline::before {
+
+.main-timeline:before {
   content: "";
+  display: block;
+  width: 2px;
+  height: 100%;
+  background: #c6c6c6;
+  margin: 0 auto;
   position: absolute;
   top: 0;
-  left: 25px;
-  height: 100%;
-  width: 4px;
-  background: rgb(8, 142, 126);
-}
-@media only screen and (min-width: 1170px) {
-  #cd-timeline {
-    margin-top: 3em;
-    margin-bottom: 3em;
-  }
-  #cd-timeline::before {
-    left: 50%;
-    margin-left: -2px;
-  }
+  left: 0;
+  right: 0;
 }
 
-.cd-timeline-block {
+.main-timeline .timeline {
+  margin-bottom: 40px;
   position: relative;
-  margin: 2em 0;
 }
-.cd-timeline-block:after {
+
+.main-timeline .timeline:after {
   content: "";
-  display: table;
+  display: block;
   clear: both;
 }
-.cd-timeline-block:first-child {
-  margin-top: 0;
+
+.main-timeline .icon {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
-.cd-timeline-block:last-child {
+
+.main-timeline .icon:before,
+.main-timeline .icon:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.33s ease-out 0s;
+}
+
+.main-timeline .icon:before {
+  background: #fff;
+  border: 2px solid #232323;
+  left: -3px;
+}
+
+.main-timeline .icon:after {
+  border: 2px solid #c6c6c6;
+  left: 3px;
+}
+
+.main-timeline .timeline:hover .icon:before {
+  left: 3px;
+}
+
+.main-timeline .timeline:hover .icon:after {
+  left: -3px;
+}
+
+.main-timeline .date-content {
+  width: 50%;
+  float: left;
+  margin-top: 22px;
+  position: relative;
+}
+
+.main-timeline .date-content:before {
+  content: "";
+  width: 36.5%;
+  height: 2px;
+  background: #c6c6c6;
+  margin: auto 0;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+}
+
+.main-timeline .date-outer {
+  width: 125px;
+  height: 125px;
+  font-size: 16px;
+  text-align: center;
+  margin: auto;
+  z-index: 1;
+}
+
+.main-timeline .date-outer:before,
+.main-timeline .date-outer:after {
+  content: "";
+  width: 125px;
+  height: 125px;
+  margin: 0 auto;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.33s ease-out 0s;
+}
+
+.main-timeline .date-outer:before {
+  background: #fff;
+  border: 2px solid #232323;
+  left: -6px;
+}
+
+.main-timeline .date-outer:after {
+  border: 2px solid #c6c6c6;
+  left: 6px;
+}
+
+.main-timeline .timeline:hover .date-outer:before {
+  left: 6px;
+}
+
+.main-timeline .timeline:hover .date-outer:after {
+  left: -6px;
+}
+
+.main-timeline .date {
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  top: 27%;
+  left: 0;
+}
+
+.main-timeline .month {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.main-timeline .year {
+  display: block;
+  font-size: 30px;
+  font-weight: 700;
+  color: #232323;
+  line-height: 36px;
+}
+
+.main-timeline .timeline-content {
+  width: 50%;
+  padding: 20px 0 20px 50px;
+  float: right;
+  color: white;
+}
+
+.main-timeline .title {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0 0 15px 0;
+}
+
+.main-timeline .description {
   margin-bottom: 0;
 }
-@media only screen and (min-width: 1170px) {
-  .cd-timeline-block {
-    margin: 4em 0;
+
+.main-timeline .timeline:nth-child(2n) .date-content {
+  float: right;
+}
+
+.main-timeline .timeline:nth-child(2n) .date-content:before {
+  left: 10px;
+}
+
+.main-timeline .timeline:nth-child(2n) .timeline-content {
+  padding: 20px 50px 20px 0;
+  text-align: right;
+}
+
+@media only screen and (max-width: 991px) {
+  .main-timeline .date-content {
+    margin-top: 35px;
   }
-  .cd-timeline-block:first-child {
+  .main-timeline .date-content:before {
+    width: 22.5%;
+  }
+  .main-timeline .timeline-content {
+    padding: 10px 0 10px 30px;
+  }
+  .main-timeline .title {
+    font-size: 17px;
+  }
+  .main-timeline .timeline:nth-child(2n) .timeline-content {
+    padding: 10px 30px 10px 0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .main-timeline:before {
+    margin: 0;
+    left: 7px;
+  }
+  .main-timeline .timeline {
+    margin-bottom: 20px;
+  }
+  .main-timeline .timeline:last-child {
+    margin-bottom: 0;
+  }
+  .main-timeline .icon {
+    margin: auto 0;
+  }
+  .main-timeline .date-content {
+    width: 95%;
+    float: right;
     margin-top: 0;
   }
-  .cd-timeline-block:last-child {
-    margin-bottom: 0;
+  .main-timeline .date-content:before {
+    display: none;
   }
-}
-
-.cd-timeline-img {
-  position: absolute;
-  top: 8px;
-  left: 12px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px rgb(8, 142, 126), inset 0 2px 0 rgba(0, 0, 0, 2),
-    0 3px 0 4px rgba(0, 0, 0, 1);
-}
-.cd-timeline-img {
-  background: rgb(8, 142, 126);
-}
-@media only screen and (min-width: 1170px) {
-  .cd-timeline-img {
-    width: 30px;
-    height: 30px;
-    left: 50%;
-    margin-left: -15px;
-    margin-top: 15px;
-
-    -webkit-transform: translateZ(
-      0
-    ); /* Para compatibilidad con navegadores WebKit */
-    transform: translateZ(0); /* Versión estándar */
-
-    -webkit-backface-visibility: hidden; /* Para compatibilidad con navegadores WebKit */
-    backface-visibility: hidden; /* Versión estándar */
+  .main-timeline .date-outer {
+    width: 110px;
+    height: 110px;
   }
-}
-
-.cd-timeline-content {
-  position: relative;
-  margin-left: 60px;
-  margin-right: 30px;
-  background: #333c42;
-  border-radius: 2px;
-  padding: 1em;
-  .timeline-content-info {
-    background: #2b343a;
-    padding: 5px 10px;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 12px;
-    box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.08);
-    border-radius: 2px;
-    i {
-      margin-right: 5px;
-    }
-    .timeline-content-info-title,
-    .timeline-content-info-date {
-      width: calc(50% - 2px);
-      display: inline-block;
-    }
-    @media (max-width: 500px) {
-      .timeline-content-info-title,
-      .timeline-content-info-date {
-        display: block;
-        width: 100%;
-      }
-    }
+  .main-timeline .date-outer:before,
+  .main-timeline .date-outer:after {
+    width: 110px;
+    height: 110px;
   }
-  .content-skills {
-    font-size: 12px;
-    padding: 0;
-    margin-bottom: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    li {
-      background: #40484d;
-      border-radius: 2px;
-      display: inline-block;
-      padding: 2px 10px;
-      color: rgba(255, 255, 255, 0.7);
-      margin: 3px 2px;
-      text-align: center;
-      flex-grow: 1;
-    }
+  .main-timeline .date {
+    top: 30%;
   }
-}
-.cd-timeline-content:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.cd-timeline-content h2 {
-  color: rgba(255, 255, 255, 0.9);
-  margin-top: 0;
-  margin-bottom: 5px;
-}
-.cd-timeline-content p,
-.cd-timeline-content .cd-date {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 13px;
-  font-size: 0.8125rem;
-}
-.cd-timeline-content .cd-date {
-  display: inline-block;
-}
-.cd-timeline-content p {
-  margin: 1em 0;
-  line-height: 1.6;
-}
-
-.cd-timeline-content::before {
-  content: "";
-  position: absolute;
-  top: 16px;
-  right: 100%;
-  height: 0;
-  width: 0;
-  border: 7px solid transparent;
-  border-right: 7px solid #333c42;
-}
-
-@media only screen and (min-width: 768px) {
-  .cd-timeline-content h2 {
-    font-size: 20px;
-    font-size: 1.25rem;
+  .main-timeline .year {
+    font-size: 24px;
   }
-  .cd-timeline-content p {
-    font-size: 16px;
-    font-size: 1rem;
+  .main-timeline .timeline-content,
+  .main-timeline .timeline:nth-child(2n) .timeline-content {
+    width: 95%;
+    text-align: center;
+    padding: 10px 0;
   }
-  .cd-timeline-content .cd-read-more,
-  .cd-timeline-content .cd-date {
-    font-size: 14px;
-    font-size: 0.875rem;
-  }
-}
-@media only screen and (min-width: 1170px) {
-  .cd-timeline-content {
-    color: white;
-    margin-left: 0;
-    padding: 1.6em;
-    width: 36%;
-    margin: 0 5%;
-  }
-  .cd-timeline-content::before {
-    top: 24px;
-    left: 100%;
-    border-color: transparent;
-    border-left-color: #333c42;
-  }
-  .cd-timeline-content .cd-date {
-    position: absolute;
-    width: 100%;
-    left: 122%;
-    top: 6px;
-    font-size: 16px;
-    font-size: 1rem;
-  }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content {
-    float: right;
-  }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
-    top: 24px;
-    left: auto;
-    right: 100%;
-    border-color: transparent;
-    border-right-color: #333c42;
-  }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
-    float: right;
-  }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
-    left: auto;
-    right: 122%;
-    text-align: right;
+  .main-timeline .title {
+    margin-bottom: 10px;
   }
 }
 </style>

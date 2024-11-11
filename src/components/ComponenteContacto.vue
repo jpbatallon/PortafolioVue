@@ -1,293 +1,141 @@
 <script setup></script>
 
 <template>
-  <div class="background">
-    <div class="container">
-      <div class="screen">
-        <div class="screen-header">
-          <div class="screen-header-left">
-            <div class="screen-header-button close"></div>
-            <div class="screen-header-button maximize"></div>
-            <div class="screen-header-button minimize"></div>
-          </div>
-          <div class="screen-header-right">
-            <div class="screen-header-ellipsis"></div>
-            <div class="screen-header-ellipsis"></div>
-            <div class="screen-header-ellipsis"></div>
-          </div>
-        </div>
-        <div class="screen-body">
-          <div class="screen-body-item left">
-            <div class="app-title">
-              <span>CONTACT</span>
-              <span>ME</span>
-            </div>
-            <div class="app-contact">CONTACT INFO : maxidpoggio@gmail.com</div>
-          </div>
-          <div class="screen-body-item">
-            <div class="app-form">
-              <div class="app-form-group">
-                <input class="app-form-control" placeholder="NAME" />
-              </div>
-              <div class="app-form-group">
-                <input class="app-form-control" placeholder="EMAIL" />
-              </div>
-              <div class="app-form-group">
-                <input class="app-form-control" placeholder="CONTACT N°" />
-              </div>
-              <div class="app-form-group message">
-                <input class="app-form-control" placeholder="MESSAGE" />
-              </div>
-              <div class="app-form-group buttons">
-                <button class="app-form-button">CANCEL</button>
-                <button class="app-form-button">SEND</button>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="form-container">
+    <form class="form">
+      <div class="form-group">
+        <input type="text" placeholder="Nombre completo" />
+        <input
+          required=""
+          name="email"
+          id="email"
+          placeholder="Email"
+          type="text"
+        />
       </div>
-    </div>
+      <div class="form-group">
+        <label for="textarea">¿Cómo puedo ayudarte?</label>
+        <textarea required="" cols="50" rows="10" id="textarea" name="textarea">
+        </textarea>
+      </div>
+      <button type="submit" class="form-submit-btn">Enviar</button>
+    </form>
   </div>
 </template>
 
 <style scoped>
-*,
-*:before,
-*:after {
+.form-container {
+  width: 400px;
+  background: linear-gradient(#212121, #212121) padding-box,
+    linear-gradient(145deg, transparent 35%, #36a8fa, #ff0f7b) border-box;
+  border: 2px solid transparent;
+  padding: 32px 24px;
+  font-size: 14px;
+  font-family: inherit;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  border-radius: 16px;
+  background-size: 200% 100%;
+  animation: gradient 5s ease infinite;
 }
 
-body {
-  background: linear-gradient(to right, #ea1d6f 0%, #eb466b 100%);
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.form-container button:active {
+  scale: 0.95;
+}
+
+.form-container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.form-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #717171;
+  font-weight: 600;
   font-size: 12px;
 }
 
-body,
-button,
-input {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  letter-spacing: 1.4px;
-}
-
-.background {
-  display: flex;
-  min-height: 100vh;
-}
-
-.container {
-  flex: 0 1 700px;
-  margin: auto;
-  padding: 10px;
-}
-
-.screen {
-  position: relative;
-  background: #3e3e3e;
-  border-radius: 15px;
-}
-
-.screen:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 20px;
-  right: 20px;
-  bottom: 0;
-  border-radius: 15px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  z-index: -1;
-}
-
-.screen-header {
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  background: #4d4d4f;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-}
-
-.screen-header-left {
-  margin-right: auto;
-}
-
-.screen-header-button {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 3px;
-  border-radius: 8px;
-  background: white;
-}
-
-.screen-header-button.close {
-  background: #ed1c6f;
-}
-
-.screen-header-button.maximize {
-  background: #e8e925;
-}
-
-.screen-header-button.minimize {
-  background: #74c54f;
-}
-
-.screen-header-right {
-  display: flex;
-}
-
-.screen-header-ellipsis {
-  width: 3px;
-  height: 3px;
-  margin-left: 2px;
-  border-radius: 8px;
-  background: #999;
-}
-
-.screen-body {
-  display: flex;
-}
-
-.screen-body-item {
-  flex: 1;
-  padding: 50px;
-}
-
-.screen-body-item.left {
-  display: flex;
-  flex-direction: column;
-}
-
-.app-title {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  color: rgb(8, 142, 126);
-  font-size: 26px;
-}
-
-.app-title:after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 25px;
-  height: 4px;
-  background: rgb(8, 142, 126);
-}
-
-.app-contact {
-  margin-top: auto;
-  font-size: 12px;
-  color: #888;
-}
-
-.app-form-group {
-  margin-bottom: 15px;
-}
-
-.app-form-group.message {
-  margin-top: 40px;
-}
-
-.app-form-group.buttons {
-  margin-bottom: 0;
-  text-align: right;
-}
-
-.app-form-control {
+.form-container .form-group input {
   width: 100%;
-  padding: 10px 0;
-  background: none;
-  border: none;
-  border-bottom: 1px solid #666;
-  color: #ddd;
-  font-size: 14px;
-  text-transform: uppercase;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.app-form-control::placeholder {
-  color: #666;
-}
-
-.app-form-control:focus {
-  border-bottom-color: #ddd;
-}
-
-.app-form-button {
-  background: none;
-  border: none;
-  color: rgb(8, 142, 126);
-  font-size: 14px;
-  cursor: pointer;
-  outline: none;
-}
-
-.app-form-button:hover {
-  color: #b9134f;
-}
-
-.credits {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  color: #ffa4bd;
-  font-family: "Roboto Condensed", sans-serif;
-  font-size: 16px;
-  font-weight: normal;
-}
-
-.credits-link {
-  display: flex;
-  align-items: center;
+  padding: 12px 16px;
+  border-radius: 8px;
   color: #fff;
-  font-weight: bold;
-  text-decoration: none;
+  font-family: inherit;
+  background-color: transparent;
+  border: 1px solid #414141;
 }
 
-.dribbble {
-  width: 20px;
-  height: 20px;
-  margin: 0 5px;
+.form-container .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  resize: none;
+  color: #fff;
+  height: 96px;
+  border: 1px solid #414141;
+  background-color: transparent;
+  font-family: inherit;
 }
 
-@media screen and (max-width: 520px) {
-  .screen-body {
-    flex-direction: column;
-  }
-
-  .screen-body-item.left {
-    margin-bottom: 30px;
-  }
-
-  .app-title {
-    flex-direction: row;
-  }
-
-  .app-title span {
-    margin-right: 12px;
-  }
-
-  .app-title:after {
-    display: none;
-  }
+.form-container .form-group input::placeholder {
+  opacity: 0.5;
 }
 
-@media screen and (max-width: 600px) {
-  .screen-body {
-    padding: 40px;
-  }
+.form-container .form-group input:focus {
+  outline: none;
+  border-color: #ff0f7b;
+}
 
-  .screen-body-item {
-    padding: 0;
-  }
+.form-container .form-group textarea:focus {
+  outline: none;
+  border-color: #36a8fa;
+}
+
+.form-container .form-submit-btn {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: flex-start;
+  font-family: inherit;
+  color: white;
+  font-weight: 600;
+  width: 40%;
+  background: #313131;
+  border: 1px solid #414141;
+  padding: 12px 16px;
+  font-size: inherit;
+  gap: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.form-container .form-submit-btn:hover {
+  background: linear-gradient(45deg, #36a8fa, #ff0f7b);
 }
 </style>

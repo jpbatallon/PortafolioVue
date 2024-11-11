@@ -54,8 +54,9 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
+  margin: auto;
   font-weight: normal;
+  justify-content: center;
 }
 
 body {
@@ -80,7 +81,6 @@ li {
 section {
   padding: 2rem;
   /* border-bottom: 1px solid #ccc; */
-  margin: 3rem 0rem 3rem 0rem;
 }
 
 section h2 {

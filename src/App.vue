@@ -33,7 +33,7 @@ import ComponenteAbout from "./components/ComponenteAbout.vue";
     <a href="#top">
       <button class="botonInicio">Inicio</button>
     </a>
-    <p>© Maximiliano Tomio - Portafolio Web - UTN FRSR 2024</p>
+    <p>© Juan Pablo Batallón Costa - Portafolio Web - UTN FRSR 2024</p>
   </footer>
 </template>
 
